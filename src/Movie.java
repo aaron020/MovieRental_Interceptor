@@ -8,28 +8,33 @@ public class Movie {
     public static final int CHILDRENS = 2;
 
     /** movie price code based on classification */
-    private int priceCode;
+    private Price priceCode;
     /** the title, of course */
     private String title;
 
     /** Initialize a new movie. */
     public Movie(String title, int priceCode) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
     /**
      * @return the priceCode
      */
     public int getPriceCode() {
-        return priceCode;
+        return priceCode.getPriceCode();
     }
 
     /**
-     * @param priceCode the priceCode to set
+     * @param arg the priceCode to set
      */
-    public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
+    public void setPriceCode(int arg) {
+        switch (arg){
+            case REGULAR -> priceCode = new RegularPrice();
+            case CHILDRENS -> priceCode = new ChildrensPrice();
+            case NEW_RELEASE -> priceCode = new NewReleasePrice();
+            default -> throw new IllegalArgumentException("Incorrect Price Code");
+        }
     }
 
     /** Return the movie title */
@@ -39,5 +44,15 @@ public class Movie {
 
     public String toString() {
         return this.title;
+    }
+
+
+    public double getCharge(int daysRented){
+        return priceCode.getCharge(daysRented);
+    }
+
+
+    public int getFrequentRenterPoints(int daysRented){
+        return priceCode.getFrequentRenterPoints(daysRented);
     }
 }
