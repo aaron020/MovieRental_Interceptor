@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+    • Allows applications to register and remove concrete
+    interceptors.
+    • Dispatches registered concrete interceptor callbacks when
+    events occur.
+ */
 public class Dispatcher {
     List<Interceptor> interceptors = new ArrayList<>();
 

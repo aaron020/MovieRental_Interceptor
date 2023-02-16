@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+    • Allows services to obtain state information from the concrete
+    framework.
+    • Allows services to control certain behaviours in the concrete
+    framework.
+ */
 public class Context {
     Customer customer;
 
