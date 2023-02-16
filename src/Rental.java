@@ -47,6 +47,4 @@ public class Rental {
         return daysRented;
     }
 
-
-
 }

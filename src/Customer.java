@@ -59,7 +59,7 @@ public class Customer {
         return result.toString();
     }
 
-    private int getTotalFrequentRenterPoints(){
+    public int getTotalFrequentRenterPoints(){
         int result = 0;
         for(Rental rental : rentals){
             result += rental.getFrequentRenterPoints();
