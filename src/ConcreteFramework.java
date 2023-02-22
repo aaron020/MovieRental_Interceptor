@@ -19,7 +19,11 @@ public class ConcreteFramework {
         rentals.add(new Rental(new Movie("Harry Potter",Movie.CHILDRENS), 3));
         rentals.add(new Rental(new Movie("Lord of the rings",Movie.REGULAR), 5));
         rentals.add(new Rental(new Movie("Spider-man",Movie.NEW_RELEASE), 8));
-        Context context = new Context("John", rentals);
+        Customer customer1 = new Customer("John");
+        for (Rental r : rentals){
+            customer1.addRental(r);
+        }
+         Context context = new Context(customer1);
 
 
         movieRental.loadStatement(context,dispatcher);
@@ -28,7 +32,12 @@ public class ConcreteFramework {
         List<Rental> rentals2 = new ArrayList<>();
         rentals2.add(new Rental(new Movie("Inception",Movie.REGULAR), 6));
         rentals2.add(new Rental(new Movie("Batman",Movie.CHILDRENS), 10));
-        Context context2 = new Context("Mark", rentals2);
+        Customer customer2 = new Customer("Mark");
+        for (Rental r : rentals){
+            customer2.addRental(r);
+        }
+
+        Context context2 = new Context(customer2);
 
         movieRental.loadStatement(context2,dispatcher);
     }

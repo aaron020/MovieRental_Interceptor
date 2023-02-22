@@ -12,14 +12,26 @@ public class Context {
     Customer customer;
 
 
-    public Context(String name, List<Rental> rentals){
-        customer = new Customer(name);
-        for (Rental rental : rentals){
-            customer.addRental(rental);
-        }
+    public Context(Customer customer){
+        this.customer = customer;
     }
 
-    public Customer getCustomer() {
-        return customer;
+
+    public int getTotalFrequentRenterPoints(){
+        return customer.getTotalFrequentRenterPoints();
     }
+
+    public String getStatement(){
+        return customer.statement();
+    }
+
+    public String getName(){
+        return customer.getName();
+    }
+
+    //Not needed - interceptor cant access anything from customer object
+    //must be accessed through context
+//    public Customer getCustomer() {
+//        return customer;
+//    }
 }

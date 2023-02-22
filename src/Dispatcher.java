@@ -22,14 +22,17 @@ public class Dispatcher {
 
     private Dispatcher(){}
 
-
+    //Dispatch
     public void interceptStatement(Context context){
         Interceptor interceptor = interceptors.get(interceptors.size()-1);
+        //Call back to the concrete interceptor
         interceptor.interceptStatement(context);
     }
 
+    //Dispatch
     public void interceptFrequentRenterPoints(Context context){
         Interceptor interceptor = interceptors.get(interceptors.size()-1);
+        //Call back to the concrete interceptor
         interceptor.interceptFrequentRenterPoints(context);
     }
 
