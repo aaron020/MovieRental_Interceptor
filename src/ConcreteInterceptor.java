@@ -3,8 +3,7 @@ import java.util.ArrayList;
 
 
 /*
-    • Implements a specific out-of-band service.
-    • Uses context object to control the concrete framework.
+    • Interceptor for logging output of system
  */
 public class ConcreteInterceptor implements Interceptor{
     ArrayList<String> statementsLogs = new ArrayList<>();

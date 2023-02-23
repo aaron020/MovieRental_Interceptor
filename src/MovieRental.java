@@ -1,10 +1,5 @@
 
-/*
-    • Allows services to obtain state information from the concrete
-    framework.
-    • Allows services to control certain behaviours in the concrete
-    framework.
- */
+
 public class MovieRental {
 
     public void loadStatement(Context context, Dispatcher dispatcher){
