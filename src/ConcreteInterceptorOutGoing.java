@@ -5,13 +5,15 @@ import java.util.ArrayList;
 /*
     • Interceptor for logging output of system
  */
-public class ConcreteInterceptor implements Interceptor{
+public class ConcreteInterceptorOutGoing implements InterceptorOutGoing {
     ArrayList<String> statementsLogs = new ArrayList<>();
     ArrayList<String> frequentRenterPointsLogs = new ArrayList<>();
 
-    private static ConcreteInterceptor concreteInterceptor;
+    ArrayList<String> customers = new ArrayList<>();
 
-    private ConcreteInterceptor(){}
+    private static ConcreteInterceptorOutGoing concreteInterceptor;
+
+    private ConcreteInterceptorOutGoing(){}
 
     @Override
     public void interceptStatement(Context context) {
@@ -31,10 +33,12 @@ public class ConcreteInterceptor implements Interceptor{
     }
 
 
+
+
     //Singleton
-    public static ConcreteInterceptor getInstance(){
+    public static ConcreteInterceptorOutGoing getInstance(){
         if(concreteInterceptor == null){
-            return new ConcreteInterceptor();
+            return new ConcreteInterceptorOutGoing();
         }else{
             return concreteInterceptor;
         }

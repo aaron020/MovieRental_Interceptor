@@ -12,7 +12,8 @@ public class ConcreteFramework {
 
 
     public static void main(String[] args){
-        Dispatcher dispatcher = Dispatcher.getInstance();
+        DispatcherOutGoing dispatcherOutGoing = DispatcherOutGoing.getInstance();
+        DispatcherInComing dispatcherInComing = DispatcherInComing.getInstance();
         MovieRental movieRental = new MovieRental();
         List<Rental> rentals = new ArrayList<>();
 
@@ -26,8 +27,9 @@ public class ConcreteFramework {
          Context context = new Context(customer1);
 
 
-        movieRental.loadStatement(context,dispatcher);
-        movieRental.loadFrequentRenterPoints(context,dispatcher);
+        movieRental.loadCustomer(context, dispatcherInComing);
+        movieRental.loadStatement(context, dispatcherOutGoing);
+        movieRental.loadFrequentRenterPoints(context, dispatcherOutGoing);
 
         List<Rental> rentals2 = new ArrayList<>();
         rentals2.add(new Rental(new Movie("Inception",Movie.REGULAR), 6));
@@ -39,6 +41,6 @@ public class ConcreteFramework {
 
         Context context2 = new Context(customer2);
 
-        movieRental.loadStatement(context2,dispatcher);
+        movieRental.loadStatement(context2, dispatcherOutGoing);
     }
 }
